@@ -43,5 +43,15 @@ public class buscaminas {
         }
 
         imprimirTablero(tablero);
+        if (minas[x][y]) {
+            tablero[x][y] = '*';
+            System.out.println("Mina!");
+        } else {
+            tablero[x][y] = '.';
+            System.out.println("Libre!");
+        }
+
+        imprimirTablero(tablero);
+
     }
 }
