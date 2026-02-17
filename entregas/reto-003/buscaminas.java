@@ -14,6 +14,10 @@ public class buscaminas {
 
     public static void main(String[] args) {
 
+        int explosiones = 0;
+        int descubiertas = 0;
+        int seguras = 35 - 5;
+
         char[][] tablero = new char[5][7];
         boolean[][] minas = new boolean[5][7];
         Random rand = new Random();
@@ -52,6 +56,29 @@ public class buscaminas {
         }
 
         imprimirTablero(tablero);
+        while (explosiones < 3 && descubiertas < seguras) {
+
+            imprimirTablero(tablero);
+
+            System.out.print("Ingrese X: ");
+            int x = sc.nextInt() - 1;
+
+            System.out.print("Ingrese Y: ");
+            int y = sc.nextInt() - 1;
+
+            if (tablero[x][y] != '-')
+                continue;
+
+            if (minas[x][y]) {
+                tablero[x][y] = '*';
+                explosiones++;
+                System.out.println("Mina!");
+            } else {
+                tablero[x][y] = '.';
+                descubiertas++;
+                System.out.println("Libre!");
+            }
+        }
 
     }
 }
