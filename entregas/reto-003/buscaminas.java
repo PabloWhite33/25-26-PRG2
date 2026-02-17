@@ -15,9 +15,22 @@ public class buscaminas {
     public static void main(String[] args) {
 
         char[][] tablero = new char[5][7];
+        boolean[][] minas = new boolean[5][7];
+        Random rand = new Random();
 
-        for(int i=0;i<5;i++){
-            for(int j=0;j<7;j++){
+        int colocadas = 0; 
+        while (colocadas < 5) {
+            int x = rand.nextInt(5);
+            int y = rand.nextInt(7);
+
+            if (!minas[x][y]) {
+                minas[x][y] = true;
+                colocadas++;
+            }
+        }
+
+        for (int i = 0; i < 5; i++) {
+            for (int j = 0; j < 7; j++) {
                 tablero[i][j] = '-';
             }
         }
