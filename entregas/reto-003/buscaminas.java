@@ -17,8 +17,15 @@ public class buscaminas {
         char[][] tablero = new char[5][7];
         boolean[][] minas = new boolean[5][7];
         Random rand = new Random();
+        Scanner sc = new Scanner(System.in);
 
-        int colocadas = 0; 
+        System.out.print("Ingrese X: ");
+        int x = sc.nextInt() - 1;
+
+        System.out.print("Ingrese Y: ");
+        int y = sc.nextInt() - 1;
+
+        int colocadas = 0;
         while (colocadas < 5) {
             int x = rand.nextInt(5);
             int y = rand.nextInt(7);
